@@ -114,3 +114,4 @@ buyNowButton.addEventListener('click', (event) => {
     cart = [];
     updateCart();
 });
+
