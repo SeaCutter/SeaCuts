@@ -140,3 +140,24 @@ footer {
 	font-size: 14px;
 	color: #333;
 }
+
+.add-to-cart {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.minus-button,
+.plus-button,
+.count {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.minus-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
