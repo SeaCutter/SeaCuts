@@ -7,6 +7,29 @@ addToCartButtons.forEach((button) => {
 	});
 });
 
+function addItemToCart(name, price) {
+    let itemExists = false;
+
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].name === name) {
+            cart[i].count++;
+            itemExists = true;
+            break;
+        }
+    }
+
+    if (!itemExists) {
+        cart.push({
+            name: name,
+            price: price,
+            count: 1
+        });
+    }
+
+    updateCart();
+}
+
+
 buyNowButton.addEventListener('click', (event) => {
 	event.preventDefault();
 	const name = document.querySelector('#name').value;
