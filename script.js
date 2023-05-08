@@ -1,11 +1,30 @@
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 const buyNowButton = document.querySelector('#buy-now');
+const plusButtons = document.querySelectorAll('.plus-button');
+const minusButtons = document.querySelectorAll('.minus-button');
+const countSpans = document.querySelectorAll('.count');
 
 addToCartButtons.forEach((button) => {
 	button.addEventListener('click', () => {
 		alert('Added to cart!');
 	});
 });
+
+for (let i = 0; i < plusButtons.length; i++) {
+    plusButtons[i].addEventListener('click', () => {
+        const count = parseInt(countSpans[i].textContent);
+        countSpans[i].textContent = count + 1;
+        minusButtons[i].removeAttribute('disabled');
+    });
+
+    minusButtons[i].addEventListener('click', () => {
+        const count = parseInt(countSpans[i].textContent);
+        countSpans[i].textContent = count - 1;
+        if (count - 1 === 0) {
+            minusButtons[i].setAttribute('disabled', true);
+        }
+    });
+}
 
 function addItemToCart(name, price) {
     let itemExists = false;
@@ -54,5 +73,8 @@ buyNowButton.addEventListener('click', (event) => {
 
 	alert('Order received!');
 });
+
+
+
 
 
