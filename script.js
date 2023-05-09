@@ -4,12 +4,12 @@ const plusButtons = document.querySelectorAll('.plus-button');
 const minusButtons = document.querySelectorAll('.minus-button');
 const countSpans = document.querySelectorAll('.count');
 
-addToCartButtons.forEach((button) => {
+/* addToCartButtons.forEach((button) => {
 	button.addEventListener('click', () => {
 		alert('Added to cart!');
 	});
 });
-
+*/
 for (let i = 0; i < plusButtons.length; i++) {
     plusButtons[i].addEventListener('click', () => {
         const count = parseInt(countSpans[i].textContent);
