@@ -1,27 +1,50 @@
-const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
 const buyNowButton = document.querySelector('#buy-now');
-const cartItems = document.querySelector('.cart-items');
+const plusButtons = document.querySelectorAll('.plus-button');
+const minusButtons = document.querySelectorAll('.minus-button');
+const countSpans = document.querySelectorAll('.count');
 
-let cart = [];
-
-addToCartButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        const fishName = button.parentElement.querySelector('.fish-name').textContent;
-        const fishPrice = button.parentElement.querySelector('.fish-price').textContent;
-
-        addToCart(fishName, fishPrice);
-    });
+/* addToCartButtons.forEach((button) => {
+	button.addEventListener('click', () => {
+		alert('Added to cart!');
+	});
 });
+*/
+for (let i = 0; i < plusButtons.length; i++) {
+    plusButtons[i].addEventListener('click', () => {
+        const count = parseInt(countSpans[i].textContent);
+        countSpans[i].textContent = count + 1;
+        minusButtons[i].removeAttribute('disabled');
+    });
 
-function addToCart(name, price) {
+    minusButtons[i].addEventListener('click', () => {
+        const count = parseInt(countSpans[i].textContent);
+        countSpans[i].textContent = count - 1;
+        if (count - 1 === 0) {
+            minusButtons[i].setAttribute('disabled', true);
+        }
+    });
+}
+
+function addItemToCart(name, price) {
+    let itemExists = false;
+
     for (let i = 0; i < cart.length; i++) {
         if (cart[i].name === name) {
             cart[i].count++;
-            updateCart();
-            return;
+            itemExists = true;
+            break;
         }
     }
-    cart.push({ name, price, count: 1 });
+
+    if (!itemExists) {
+        cart.push({
+            name: name,
+            price: price,
+            count: 1
+        });
+    }
+
     updateCart();
 }
 
@@ -70,12 +93,17 @@ buyNowButton.addEventListener('click', (event) => {
         return total + (parseFloat(item.price) * item.count);
     }, 0).toFixed(2);
 
-    const message = `Order received\nName: ${name}\nAddress: ${address}\nPhone: ${phone}\nItems: ${items.join(', ')}\nTotal price: ${totalPrice}`;
+    
+	if (name === '' || address === '' || phone === '' || items.length === 0) {
+		alert('Please fill all the required fields and add at least one item to the cart.');
+	} else {
+		const message = `Order received\nName: ${name}\nAddress: ${address}\nPhone: ${phone}\nItems: ${items.join(', ')}\nTotal price: ${totalPrice}`;
 
-    window.open(`https://wa.me/919607040169?text=${encodeURIComponent(message)}`);
+		window.open(`https://wa.me/919607040169?text=${encodeURIComponent(message)}`);
 
-    alert('Order received!');
-
+		alert('Order received!');
+	
     cart = [];
     updateCart();
+        }
 });
