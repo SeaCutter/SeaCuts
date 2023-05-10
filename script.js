@@ -1,4 +1,4 @@
-const addToCartButtons = document.querySelectorAll('.add-to-cart');
+const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
 const buyNowButton = document.querySelector('#buy-now');
 const cartItems = document.querySelector('.cart-items');
 
