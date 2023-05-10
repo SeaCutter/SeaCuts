@@ -3,6 +3,7 @@ const buyNowButton = document.querySelector('#buy-now');
 const plusButtons = document.querySelectorAll('.plus-button');
 const minusButtons = document.querySelectorAll('.minus-button');
 const countSpans = document.querySelectorAll('.count');
+const cartItems = document.querySelector('#cart-items');
 
 /* addToCartButtons.forEach((button) => {
 	button.addEventListener('click', () => {
