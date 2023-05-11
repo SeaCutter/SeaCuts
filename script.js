@@ -17,6 +17,10 @@ for (let i = 0; i < plusButtons.length; i++) {
         const count = parseInt(countSpans[i].textContent);
         countSpans[i].textContent = count + 1;
         minusButtons[i].removeAttribute('disabled');
+	    
+	    // add item to cart
+	const itemElement = plusButtons[i].closest('li');
+        addItemToCart(itemElement);
     });
 
     minusButtons[i].addEventListener('click', () => {
@@ -25,6 +29,9 @@ for (let i = 0; i < plusButtons.length; i++) {
         if (count - 1 === 0) {
             minusButtons[i].setAttribute('disabled', true);
         }
+	    // remove item from cart
+        const itemElement = minusButtons[i].closest('li');
+        removeItemFromCart(itemElement);
     });
 }
 
@@ -75,6 +82,21 @@ function addItemToCart(itemElement) {
     updateCart();
 }
 
+function removeItemFromCart(itemElement) {
+    const name = itemElement.querySelector('h3').textContent;
+
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].name === name) {
+            cart[i].count--;
+            if (cart[i].count === 0) {
+                cart.splice(i, 1);
+            }
+            break;
+        }
+    }
+
+    updateCart();
+}
 
 
 /* buyNowButton.addEventListener('click', (event) => {
@@ -119,8 +141,8 @@ function updateCart() {
         itemPrice.textContent = cart[i].price;
         itemRemove.textContent = 'Remove';
         itemRemove.addEventListener('click', () => {
-            cart.splice(i, 1);
-            updateCart();
+            const itemElement = document.querySelector(`li:has(h3:contains(${cart[i].name}))`);
+            removeItemFromCart(itemElement);
         });
 
         itemInfo.appendChild(itemName);
