@@ -4,6 +4,7 @@ const plusButtons = document.querySelectorAll('.plus-button');
 const minusButtons = document.querySelectorAll('.minus-button');
 const countSpans = document.querySelectorAll('.count');
 const cartItems = document.querySelector('#cart-items');
+const cart = [];
 
 /* addToCartButtons.forEach((button) => {
 	button.addEventListener('click', () => {
@@ -27,7 +28,7 @@ for (let i = 0; i < plusButtons.length; i++) {
     });
 }
 
-function addItemToCart(name, price) {
+/* function addItemToCart(name, price) {
     let itemExists = false;
 
     for (let i = 0; i < cart.length; i++) {
@@ -48,6 +49,32 @@ function addItemToCart(name, price) {
 
     updateCart();
 }
+
+*/
+function addItemToCart(itemElement) {
+    const name = itemElement.querySelector('h3').textContent;
+    const price = itemElement.querySelector('.price').textContent;
+    let itemExists = false;
+
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].name === name) {
+            cart[i].count++;
+            itemExists = true;
+            break;
+        }
+    }
+
+    if (!itemExists) {
+        cart.push({
+            name: name,
+            price: price,
+            count: 1
+        });
+    }
+
+    updateCart();
+}
+
 
 
 /* buyNowButton.addEventListener('click', (event) => {
@@ -104,23 +131,28 @@ function updateCart() {
         cartItems.appendChild(item);
     }
 }
+
+const addButtons = document.querySelectorAll('.add-to-cart-button');
+addButtons.forEach((button) => {
+    const name = button.getAttribute('data-name');
+    button.addEventListener('click', () => {
+        const itemElement = button.parentElement.parentElement;
+        addItemToCart(itemElement);
+    });
+});
+
 buyNowButton.addEventListener('click', (event) => {
 	event.preventDefault();
 	const name = document.querySelector('#name').value;
 	const address = document.querySelector('#address').value;
 	const phone = document.querySelector('#phone').value;
-	const cartItems = document.querySelectorAll('.fish-menu li');
 	let items = [];
 
-	cartItems.forEach((item) => {
-		const itemName = item.querySelector('h3').textContent;
-		const itemPrice = item.querySelector('.price').textContent;
-		items.push(`${itemName} - ${itemPrice}`);
+	cart.forEach((item) => {
+		items.push(`${item.name} - ${item.price} x ${item.count}`);
 	});
 
-	const totalPrice = Array.from(cartItems)
-		.reduce((acc, item) => acc + parseFloat(item.querySelector('.price').textContent), 0)
-		.toFixed(2);
+	const totalPrice = cart.reduce((acc, item) => acc + parseFloat(item.price) * item.count, 0).toFixed(2);
 
 	if (name === '' || address === '' || phone === '' || items.length === 0) {
 		alert('Please fill all the required fields and add at least one item to the cart.');
