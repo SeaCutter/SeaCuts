@@ -4,6 +4,7 @@ const plusButtons = document.querySelectorAll('.plus-button');
 const minusButtons = document.querySelectorAll('.minus-button');
 const countSpans = document.querySelectorAll('.count');
 const cartItems = document.querySelector('#cart-items');
+const fishList = document.querySelector('#fish-list');
 const cart = [];
 
 /* addToCartButtons.forEach((button) => {
@@ -12,6 +13,28 @@ const cart = [];
 	});
 });
 */
+
+fetch('fish.csv')
+  .then(response => response.text())
+  .then(text => {
+    const lines = text.trim().split('\n').slice(1);
+    for (const line of lines) {
+      const [name, price] = line.split(',');
+      const listItem = document.createElement('li');
+      listItem.innerHTML = `
+        <img src="${name.toLowerCase()}.jpg" alt="${name}">
+        <h3>${name}</h3>
+        <<p class="price">$${price}</p>
+        <div class="add-to-cart">
+            <button class="minus-button" disabled>-</button>
+            <span class="count">0</span>
+            <button class="plus-button">+</button>
+        </div>
+      `;
+      fishList.appendChild(listItem);
+    }
+  });
+
 for (let i = 0; i < plusButtons.length; i++) {
     plusButtons[i].addEventListener('click', () => {
         const count = parseInt(countSpans[i].textContent);
