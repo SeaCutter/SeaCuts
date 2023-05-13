@@ -13,7 +13,6 @@ const cart = [];
 	});
 });
 */
-
 fetch('fish.csv')
   .then(response => response.text())
   .then(text => {
