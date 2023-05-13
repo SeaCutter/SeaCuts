@@ -1,7 +1,7 @@
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 const buyNowButton = document.querySelector('#buy-now');
 const fishList = document.querySelector('#fish-list');
-const cart = []; 
+let cart = []; 
 
 fetch('fish.csv')
   .then(response => response.text())
