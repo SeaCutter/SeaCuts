@@ -1,8 +1,5 @@
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 const buyNowButton = document.querySelector('#buy-now');
-//const plusButtons = document.querySelectorAll('.plus-button');
-//const minusButtons = document.querySelectorAll('.minus-button');
-//const countSpans = document.querySelectorAll('.count');
 const cartItems = document.querySelector('#cart-items');
 const fishList = document.querySelector('#fish-list');
 const cart = [];
@@ -59,76 +56,6 @@ fetch('fish.csv')
     }
   });
 
-
-
-/*
-fetch('fish.csv')
-  .then(response => response.text())
-  .then(text => {
-    const lines = text.trim().split('\n').slice(1);
-    for (const line of lines) {
-      const [name, price] = line.split(',');
-      const listItem = document.createElement('li');
-      listItem.innerHTML = `
-        <img src="${name.toLowerCase()}.jpg" alt="${name}">
-        <h3>${name}</h3>
-        <p class="price">$${price}</p>
-        <div class="add-to-cart">
-            <button class="minus-button" disabled>-</button>
-            <span class="count">0</span>
-            <button class="plus-button">+</button>
-        </div>
-      `;
-      fishList.appendChild(listItem);
-    }
-  });
-
-for (let i = 0; i < plusButtons.length; i++) {
-    plusButtons[i].addEventListener('click', () => {
-        const count = parseInt(countSpans[i].textContent);
-        countSpans[i].textContent = count + 1;
-        minusButtons[i].removeAttribute('disabled');
-	    
-	    // add item to cart
-	const itemElement = plusButtons[i].closest('li');
-        addItemToCart(itemElement);
-    });
-
-    minusButtons[i].addEventListener('click', () => {
-        const count = parseInt(countSpans[i].textContent);
-        countSpans[i].textContent = count - 1;
-        if (count - 1 === 0) {
-            minusButtons[i].setAttribute('disabled', true);
-        }
-	    // remove item from cart
-        const itemElement = minusButtons[i].closest('li');
-        removeItemFromCart(itemElement);
-    });
-}
-*/
-/* function addItemToCart(name, price) {
-    let itemExists = false;
-
-    for (let i = 0; i < cart.length; i++) {
-        if (cart[i].name === name) {
-            cart[i].count++;
-            itemExists = true;
-            break;
-        }
-    }
-
-    if (!itemExists) {
-        cart.push({
-            name: name,
-            price: price,
-            count: 1
-        });
-    }
-
-    updateCart();
-}
-
-*/
 function addItemToCart(itemElement) {
     const name = itemElement.querySelector('h3').textContent;
     const price = itemElement.querySelector('.price').textContent;
@@ -168,33 +95,6 @@ function removeItemFromCart(itemElement) {
 
     updateCart();
 }
-
-
-/* buyNowButton.addEventListener('click', (event) => {
-	event.preventDefault();
-	const name = document.querySelector('#name').value;
-	const address = document.querySelector('#address').value;
-	const phone = document.querySelector('#phone').value;
-	const cartItems = document.querySelectorAll('.fish-menu li');
-	let items = [];
-
-	cartItems.forEach((item) => {
-		const itemName = item.querySelector('h3').textContent;
-		const itemPrice = item.querySelector('.price').textContent;
-		items.push(`${itemName} - ${itemPrice}`);
-	});
-
-	const totalPrice = Array.from(cartItems)
-		.reduce((acc, item) => acc + parseFloat(item.querySelector('.price').textContent), 0)
-		.toFixed(2);
-
-	const message = `Order received\nName: ${name}\nAddress: ${address}\nPhone: ${phone}\nItems: ${items.join(', ')}\nTotal price: ${totalPrice}`;
-
-	window.open(`https://wa.me/919607040169?text=${encodeURIComponent(message)}`);
-
-	alert('Order received!');
-});
-*/
 
 function updateCart() {
     cartItems.innerHTML = '';
