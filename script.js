@@ -80,7 +80,7 @@ function addItemToCart(itemElement) {
     updateCart();
 }
 
-function removeItemFromCart(itemElement) {
+/* function removeItemFromCart(itemElement) {
     const name = itemElement.querySelector('h3').textContent;
 
     for (let i = 0; i < cart.length; i++) {
@@ -95,6 +95,30 @@ function removeItemFromCart(itemElement) {
 
     updateCart();
 }
+*/
+function removeItemFromCart(itemElement) {
+  const name = itemElement.querySelector('h3').textContent;
+
+  const itemList = document.querySelectorAll('#fish-list li');
+  for (let i = 0; i < itemList.length; i++) {
+    const itemName = itemList[i].querySelector('h3').textContent;
+    if (itemName === name) {
+      for (let j = 0; j < cart.length; j++) {
+        if (cart[j].name === name) {
+          cart[j].count--;
+          if (cart[j].count === 0) {
+            cart.splice(j, 1);
+          }
+          break;
+        }
+      }
+      break;
+    }
+  }
+
+  updateCart();
+}
+
 
 function updateCart() {
     cartItems.innerHTML = '';
