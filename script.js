@@ -120,6 +120,7 @@ function addItemToCart(itemElement) {
   updateCart();
 }
 */
+/*
 function removeItemFromCart(itemElement) {
   const name = itemElement.querySelector('h3').textContent;
 
@@ -151,6 +152,27 @@ function removeItemFromCart(itemElement) {
   }
 }
 
+*/
+function removeItemFromCart(itemElement) {
+  const name = itemElement.querySelector('h3').textContent;
+
+  // Find the item in the cart
+  const itemIndex = cart.findIndex(item => item.name === name);
+  if (itemIndex === -1) {
+    // Item not found in cart
+    return;
+  }
+
+  // Decrement the item count or remove the item if count becomes zero
+  const item = cart[itemIndex];
+  item.count--;
+  if (item.count === 0) {
+    cart.splice(itemIndex, 1);
+  }
+
+  // Update the cart display
+  updateCart();
+}
 
 function updateCart() {
     cartItems.innerHTML = '';
