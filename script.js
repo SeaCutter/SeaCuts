@@ -233,7 +233,7 @@ addButtons.forEach((button) => {
 
 */
 function updateCart() {
-	const cartItems = document.querySelector('.cart-items');
+	const cartItems = document.querySelector('#cart-items');
    	cartItems.innerHTML = '';
 
   if (cart.length === 0) {
