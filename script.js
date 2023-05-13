@@ -264,7 +264,7 @@ function updateCart() {
     item.appendChild(itemInfo);
     cartItems.appendChild(item);
   }
-console.log(cartItems);
+
   const clearCartButton = document.createElement('button');
   clearCartButton.textContent = 'Clear Cart';
   clearCartButton.addEventListener('click', () => {
@@ -295,7 +295,7 @@ buyNowButton.addEventListener('click', (event) => {
 	const address = document.querySelector('#address').value;
 	const phone = document.querySelector('#phone').value;
 	let items = [];
-console.log(cartItems);
+
 	cart.forEach((item) => {
 		items.push(`${item.name} - ${item.price} x ${item.count}`);
 	});
