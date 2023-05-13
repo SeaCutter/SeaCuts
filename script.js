@@ -174,35 +174,8 @@ function removeItemFromCart(itemElement) {
   updateCart();
 }
 
-/* function updateCart() {
-    cartItems.innerHTML = '';
-    for (let i = 0; i < cart.length; i++) {
-        const item = document.createElement('li');
-        const itemInfo = document.createElement('div');
-        const itemName = document.createElement('h3');
-        const itemCount = document.createElement('span');
-        const itemPrice = document.createElement('span');
-        const itemRemove = document.createElement('button');
 
-        item.classList.add('cart-item');
-        itemName.textContent = cart[i].name;
-        itemCount.textContent = ` x${cart[i].count}`;
-        itemPrice.textContent = cart[i].price;
-        itemRemove.textContent = 'Remove';
-        itemRemove.addEventListener('click', () => {
-            const itemElement = document.querySelector(`li:has(h3:contains(${cart[i].name}))`);
-            removeItemFromCart(itemElement);
-        });
-
-        itemInfo.appendChild(itemName);
-        itemInfo.appendChild(itemCount);
-        itemInfo.appendChild(itemPrice);
-        item.appendChild(itemInfo);
-        item.appendChild(itemRemove);
-        cartItems.appendChild(item);
-    }
-}
-*/
+/*
 function updateCart() {
   cartItems.innerHTML = '';
 
@@ -257,6 +230,63 @@ addButtons.forEach((button) => {
         const itemElement = button.parentElement.parentElement;
         addItemToCart(itemElement);
     });
+});
+
+*/
+function updateCart() {
+  cartItems.innerHTML = '';
+
+  if (cart.length === 0) {
+    const emptyMessage = document.createElement('p');
+    emptyMessage.textContent = 'Your cart is empty';
+    cartItems.appendChild(emptyMessage);
+    return;
+  }
+
+  let totalPrice = 0;
+
+  for (let i = 0; i < cart.length; i++) {
+    const item = document.createElement('li');
+    const itemInfo = document.createElement('div');
+    const itemName = document.createElement('h3');
+    const itemCount = document.createElement('span');
+    const itemPrice = document.createElement('span');
+
+    item.classList.add('cart-item');
+    itemName.textContent = cart[i].name;
+    itemCount.textContent = ` x${cart[i].count}`;
+    itemPrice.textContent = cart[i].price;
+    totalPrice += cart[i].count * cart[i].price;
+
+    itemInfo.appendChild(itemName);
+    itemInfo.appendChild(itemCount);
+    itemInfo.appendChild(itemPrice);
+    item.appendChild(itemInfo);
+    cartItems.appendChild(item);
+  }
+
+  const clearCartButton = document.createElement('button');
+  clearCartButton.textContent = 'Clear Cart';
+  clearCartButton.addEventListener('click', () => {
+    cart = [];
+    updateCart();
+  });
+
+  const totalPriceMessage = document.createElement('p');
+  totalPriceMessage.textContent = `Total: $${totalPrice.toFixed(2)}`;
+
+  cartItems.appendChild(clearCartButton);
+  cartItems.appendChild(totalPriceMessage);
+}
+
+const addButtons = document.querySelectorAll('.add-to-cart-button');
+addButtons.forEach((button) => {
+  const name = button.getAttribute('data-name');
+  const price = parseFloat(button.getAttribute('data-price'));
+  button.addEventListener('click', () => {
+    addItemToCart({ name, price });
+    updateCart();
+  });
 });
 
 buyNowButton.addEventListener('click', (event) => {
