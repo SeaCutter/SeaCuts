@@ -1,6 +1,5 @@
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 const buyNowButton = document.querySelector('#buy-now');
-const cartItems = document.querySelector('#cart-items');
 const fishList = document.querySelector('#fish-list');
 const cart = [];
 
@@ -234,7 +233,8 @@ addButtons.forEach((button) => {
 
 */
 function updateCart() {
-  cartItems.innerHTML = '';
+	const cartItems = document.querySelector('#cart-items');
+   	cartItems.innerHTML = '';
 
   if (cart.length === 0) {
     const emptyMessage = document.createElement('p');
