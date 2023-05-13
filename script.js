@@ -1,18 +1,63 @@
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 const buyNowButton = document.querySelector('#buy-now');
-const plusButtons = document.querySelectorAll('.plus-button');
-const minusButtons = document.querySelectorAll('.minus-button');
-const countSpans = document.querySelectorAll('.count');
+//const plusButtons = document.querySelectorAll('.plus-button');
+//const minusButtons = document.querySelectorAll('.minus-button');
+//const countSpans = document.querySelectorAll('.count');
 const cartItems = document.querySelector('#cart-items');
 const fishList = document.querySelector('#fish-list');
 const cart = [];
 
-/* addToCartButtons.forEach((button) => {
-	button.addEventListener('click', () => {
-		alert('Added to cart!');
-	});
-});
-*/
+fetch('fish.csv')
+  .then(response => response.text())
+  .then(text => {
+    const lines = text.trim().split('\n').slice(1);
+    for (const line of lines) {
+      const [name, price] = line.split(',');
+      const listItem = document.createElement('li');
+      listItem.innerHTML = `
+        <img src="${name.toLowerCase()}.jpg" alt="${name}">
+        <h3>${name}</h3>
+        <p class="price">$${price}</p>
+        <div class="add-to-cart">
+            <button class="minus-button" disabled>-</button>
+            <span class="count">0</span>
+            <button class="plus-button">+</button>
+        </div>
+      `;
+      fishList.appendChild(listItem);
+
+      // add event listeners for plus and minus buttons
+      const plusButton = listItem.querySelector('.plus-button');
+      const minusButton = listItem.querySelector('.minus-button');
+      const countSpan = listItem.querySelector('.count');
+
+      plusButton.addEventListener('click', () => {
+        const count = parseInt(countSpan.textContent);
+        countSpan.textContent = count + 1;
+        minusButton.removeAttribute('disabled');
+
+        // add item to cart
+        const itemElement = plusButton.closest('li');
+        addItemToCart(itemElement);
+      });
+
+      minusButton.addEventListener('click', () => {
+        const count = parseInt(countSpan.textContent);
+        countSpan.textContent = count - 1;
+        if (count - 1 === 0) {
+          minusButton.setAttribute('disabled', true);
+        }
+
+        // remove item from cart
+        const itemElement = minusButton.closest('li');
+        removeItemFromCart(itemElement);
+      });
+    }
+  });
+
+
+
+/*
 fetch('fish.csv')
   .then(response => response.text())
   .then(text => {
@@ -56,7 +101,7 @@ for (let i = 0; i < plusButtons.length; i++) {
         removeItemFromCart(itemElement);
     });
 }
-
+*/
 /* function addItemToCart(name, price) {
     let itemExists = false;
 
