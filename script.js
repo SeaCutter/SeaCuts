@@ -14,7 +14,7 @@ const cart = [];
 });
 */
 
-fetch('fish.csv')
+/* fetch('fish.csv')
   .then(response => response.text())
   .then(text => {
     const lines = text.trim().split('\n').slice(1);
@@ -34,7 +34,7 @@ fetch('fish.csv')
       fishList.appendChild(listItem);
     }
   });
-
+*/
 for (let i = 0; i < plusButtons.length; i++) {
     plusButtons[i].addEventListener('click', () => {
         const count = parseInt(countSpans[i].textContent);
