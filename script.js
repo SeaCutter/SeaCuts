@@ -49,8 +49,11 @@ fetch('fish.csv')
         }
 
         // remove item from cart
-        const itemElement = minusButton.closest('li');
-        removeItemFromCart(itemElement);
+      //  const itemElement = minusButton.closest('li');
+       // removeItemFromCart(itemElement);
+	      const itemElement = removeButtons[i].closest('li');
+	      itemElement.remove();
+
       });
     }
   });
