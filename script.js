@@ -96,7 +96,8 @@ function addItemToCart(itemElement) {
     updateCart();
 }
 */
-function removeItemFromCart(itemElement) {
+
+/*function removeItemFromCart(itemElement) {
   const name = itemElement.querySelector('h3').textContent;
 
   const itemList = document.querySelectorAll('#fish-list li');
@@ -117,6 +118,37 @@ function removeItemFromCart(itemElement) {
   }
 
   updateCart();
+}
+*/
+function removeItemFromCart(itemElement) {
+  const name = itemElement.querySelector('h3').textContent;
+
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].name === name) {
+      cart[i].count--;
+      if (cart[i].count === 0) {
+        cart.splice(i, 1);
+      }
+      break;
+    }
+  }
+
+  updateCart();
+
+  // update the count and disabled state of the buttons for this item
+  const items = document.querySelectorAll('li');
+  for (const item of items) {
+    if (item.querySelector('h3').textContent === name) {
+      const count = item.querySelector('.count');
+      const minusButton = item.querySelector('.minus-button');
+      if (count.textContent === '0') {
+        minusButton.setAttribute('disabled', true);
+      } else {
+        minusButton.removeAttribute('disabled');
+      }
+      count.textContent = cart.find(item => item.name === name)?.count || 0;
+    }
+  }
 }
 
 
