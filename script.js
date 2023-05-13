@@ -210,8 +210,30 @@ function updateCart() {
   const clearCartButton = document.createElement('button');
   clearCartButton.textContent = 'Clear Cart';
   clearCartButton.addEventListener('click', () => {
-    cart = [];
-    updateCart();
+  // upto cart=[]; the code is from removeCartItem
+  const name = itemElement.querySelector('h3').textContent;
+
+  // Find the item in the cart
+  const itemIndex = cart.findIndex(item => item.name === name);
+  if (itemIndex === -1) {
+    // Item not found in cart
+    return;
+  }
+
+  // Decrement the item count or remove the item if count becomes zero
+  const item = cart[itemIndex];
+  item.count = 0;
+  if (item.count === 0) {
+    cart.splice(itemIndex, 1);
+  }
+
+  // Update the cart display
+  updateCart();
+
+  
+  
+    //cart = [];
+    //updateCart();
   });
 
   const totalPriceMessage = document.createElement('p');
