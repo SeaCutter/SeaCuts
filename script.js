@@ -99,64 +99,7 @@ function removeItemFromCart(itemElement) {
   // Update the cart display
   updateCart();
 }
-/*
-function updateCart() {
-	const cartItems = document.querySelector('#cart-items');
-   	cartItems.innerHTML = '';
 
-  if (cart.length === 0) {
-    const emptyMessage = document.createElement('p');
-    emptyMessage.textContent = 'Your cart is empty';
-    cartItems.appendChild(emptyMessage);
-    return;
-  }
-
-  let totalPrice = 0;
-
-  for (let i = 0; i < cart.length; i++) {
-    const item = document.createElement('li');
-    const itemInfo = document.createElement('div');
-    const itemName = document.createElement('h3');
-    const itemCount = document.createElement('span');
-    const itemPrice = document.createElement('span');
-
-    item.classList.add('cart-item');
-    itemName.textContent = cart[i].name;
-    itemCount.textContent = ` x${cart[i].count}`;
-    itemPrice.textContent = cart[i].price;
-    totalPrice += cart[i].count * cart[i].price;
-
-    itemInfo.appendChild(itemName);
-    itemInfo.appendChild(itemCount);
-    itemInfo.appendChild(itemPrice);
-    item.appendChild(itemInfo);
-    cartItems.appendChild(item);
-  }
-
-  const clearCartButton = document.createElement('button');
-  clearCartButton.textContent = 'Clear Cart';
-  clearCartButton.addEventListener('click', () => {
-     cart = [];
-    updateCart();
-  });
-
-  const totalPriceMessage = document.createElement('p');
-  totalPriceMessage.textContent = `Total: $${totalPrice.toFixed(2)}`;
-
-  cartItems.appendChild(clearCartButton);
-  cartItems.appendChild(totalPriceMessage);
-}
-
-const addButtons = document.querySelectorAll('.add-to-cart-button');
-addButtons.forEach((button) => {
-  const name = button.getAttribute('data-name');
-  const price = parseFloat(button.getAttribute('data-price'));
-  button.addEventListener('click', () => {
-    addItemToCart({ name, price });
-    updateCart();
-  });
-});
-*/
 function updateCart() {
   const cartItems = document.querySelector('#cart-items');
   cartItems.innerHTML = '';
