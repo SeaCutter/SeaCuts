@@ -206,6 +206,9 @@ function updateCart() {
   for (const item of items) {
     const countSpan = item.querySelector('.count');
     countSpan.textContent = '0';
+// Disable the minus button
+    const minusButton = item.querySelector('.minus-button');
+    minusButton.setAttribute('disabled', true);	  
   }	  
 });
 
