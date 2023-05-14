@@ -181,8 +181,12 @@ buyNowButton.addEventListener('click', (event) => {
 		items.push(`${item.name} - ${item.price} x ${item.count}`);
 	});
 
-	const totalPrice = cart.reduce((acc, item) => acc + parseFloat(item.price) * item.count, 0).toFixed(2);
-
+	//const totalPrice = cart.reduce((acc, item) => acc + parseFloat(item.price) * item.count, 0).toFixed(2);
+        const totalPrice = cart.reduce((acc, item) => {
+		const price = parseFloat(item.price.match(/\d+(\.\d+)?/)[0]);
+		return acc + price * item.count;
+	}, 0).toFixed(2);
+	
 	if (name === '' || address === '' || phone === '' || items.length === 0) {
 		alert('Please fill all the required fields and add at least one item to the cart.');
 	} else {
