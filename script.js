@@ -123,7 +123,7 @@ function updateCart() {
     item.classList.add('cart-item');
     itemName.textContent = cart[i].name;
     itemCount.textContent = ` x${cart[i].count}`;
-    const price = parseFloat(cart[i].price.replace('$', '')); // Extract numerical value from price string
+    const price = parseFloat(cart[i].price.replace('₹', '')); // Extract numerical value from price string
     itemPrice.textContent = `₹${price.toFixed(2)}`; // Display price with Rupee symbol
     totalPrice += price * cart[i].count;	  
 //    itemPrice.textContent = cart[i].price;
