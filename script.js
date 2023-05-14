@@ -181,7 +181,10 @@ function updateCart() {
     itemName.textContent = cart[i].name;
     itemCount.textContent = ` x${cart[i].count}`;
     itemPrice.textContent = cart[i].price;
-    totalPrice += cart[i].count * cart[i].price;
+    totalPrice += parseFloat(cart[i].price) * cart[i].count; // Convert price to number
+
+
+   // totalPrice += cart[i].count * cart[i].price;
 
     itemInfo.appendChild(itemName);
     itemInfo.appendChild(itemCount);
