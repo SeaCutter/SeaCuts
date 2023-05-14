@@ -190,9 +190,9 @@ function updateCart() {
     cartItems.appendChild(item);
 
     // Update the count displayed for the item in the HTML
-    const itemElement = document.querySelector(`#fish-list li:nth-child(${i + 1})`);
-    const countSpan = itemElement.querySelector('.count');
-    countSpan.textContent = cart[i].count;
+   // const itemElement = document.querySelector(`#fish-list li:nth-child(${i + 1})`);
+    //const countSpan = itemElement.querySelector('.count');
+    //countSpan.textContent = cart[i].count;
   }
 
   const clearCartButton = document.createElement('button');
@@ -200,8 +200,16 @@ function updateCart() {
   clearCartButton.addEventListener('click', () => {
     cart = [];
     updateCart();
-  });
+  
+  // Reset the count displayed for each item in the HTML
+  const items = document.querySelectorAll('#fish-list li');
+  for (const item of items) {
+    const countSpan = item.querySelector('.count');
+    countSpan.textContent = '0';
+  }	  
+});
 
+	
   const totalPriceMessage = document.createElement('p');
   totalPriceMessage.textContent = `Total: $${totalPrice.toFixed(2)}`;
 
