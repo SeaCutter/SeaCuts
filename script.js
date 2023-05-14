@@ -13,7 +13,7 @@ fetch('fish.csv')
       listItem.innerHTML = `
         <img src="${name.toLowerCase()}.jpg" alt="${name}">
         <h3>${name}</h3>
-        <p class="price">$${price}</p>
+        <p class="price">₹${price}</p>
         <div class="add-to-cart">
             <button class="minus-button" disabled>-</button>
             <span class="count">0</span>
@@ -163,7 +163,7 @@ function updateCart() {
 
 	
   const totalPriceMessage = document.createElement('p');
-  totalPriceMessage.textContent = `Total: $${totalPrice.toFixed(2)}`;
+  totalPriceMessage.textContent = `Total: ₹${totalPrice.toFixed(2)}`;
 
   cartItems.appendChild(clearCartButton);
   cartItems.appendChild(totalPriceMessage);
