@@ -146,6 +146,7 @@ function updateCart() {
 
   const clearCartButton = document.createElement('button');
   clearCartButton.textContent = 'Clear Cart';
+  clearCartButton.classList.add('clear-cart-button');
   clearCartButton.addEventListener('click', () => {
     cart = [];
     updateCart();
