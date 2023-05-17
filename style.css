@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Ubuntu, sans-serif;
 }
 
 /* Container styles */
@@ -23,18 +23,20 @@ body {
 header {
   text-align: center;
   margin-bottom: 20px;
-  background-color:#7FDB18;
+  background-color:#000000
 }
 
 h1 {
   
-  font-size: 36px;
-  color: #333;
+  font-size: 46px;
+  font-family: Ubuntu, sans-serif;
+  
 }
+
 
 h2 {
   text-align: center;
-  
+  font-family: Ubuntu, sans-serif;
 }
 
 /* Main styles */
@@ -52,7 +54,7 @@ main {
 
 /* Fish menu styles */
 
-img {
+.icons {
   border-radius: 50%;
 }
 
