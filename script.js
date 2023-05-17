@@ -11,7 +11,7 @@ fetch('fish.csv')
       const [name, price] = line.split(',');
       const listItem = document.createElement('li');
       listItem.innerHTML = `
-        <img src="img/fish/${name.toLowerCase()}.jpg" alt="${name}" class="icons" width="70" height="70">
+        <img src="img/fish/${name.toLowerCase()}.jpg" alt="${name}" class="icons" width="80" height="80">
         <h3>${name}</h3>
         <p class="price">₹${price}</p>
         <div class="add-to-cart">
