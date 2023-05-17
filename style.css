@@ -157,6 +157,13 @@ main {
   background-color: #555;
 }
 
+/* cart */
+
+.clear-cart-button {
+ background-color: #F90404;
+
+}
+
 /* Buy now styles */
 
 .buy-now {
