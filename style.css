@@ -160,8 +160,19 @@ main {
 /* cart */
 
 .clear-cart-button {
- background-color: #F90404;
+  padding: 6px 8px;
+  margin: 4px 2px;
+  font-size: 10px;
+  background-color: white; 
+  color: black;
+  border-radius: 12px; 
+  border: 2px solid #F90404;
+  transition-duration: 0.0s;
+}
 
+.clear-cart-button:hover {
+  background-color: #F90404;
+  color: white;
 }
 
 /* Buy now styles */
