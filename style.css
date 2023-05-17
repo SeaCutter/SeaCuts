@@ -1,169 +1,4 @@
-/* 
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
 
-body {
-	font-family: Arial, sans-serif;
-}
-
-.container {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 20px;
-}
-
-header {
-	text-align: center;
-	margin-bottom: 20px;
-	background-color: #7FDB16;
-}
-
-h1 {
-	font-size: 36px;
-	color: #333;
-}
-
-main {
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.fish-menu {
-	flex: 1;
-	margin-right: 20px;
-}
-
-.fish-menu h2 {
-	font-size: 24px;
-	margin-bottom: 10px;
-}
-
-.fish-menu ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-.fish-menu li {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-bottom: 20px;
-}
-
-.fish-menu li img {
-	max-width: 100%;
-	height: auto;
-}
-
-.fish-menu li h3 {
-	font-size: 18px;
-	margin-top: 10px;
-}
-
-.fish-menu li p.price {
-	font-size: 16px;
-	color: #333;
-	margin-bottom: 10px;
-}
-
-.fish-menu li button.add-to-cart {
-	background-color: #333;
-	color: #fff;
-	border: none;
-	padding: 10px 20px;
-	font-size: 16px;
-	cursor: pointer;
-	transition: background-color 0.2s ease;
-}
-
-.fish-menu li button.add-to-cart:hover {
-	background-color: #555;
-}
-
-.buy-now {
-	flex: 1;
-}
-
-.buy-now h2 {
-	font-size: 24px;
-	margin-bottom: 10px;
-}
-
-.buy-now form {
-	display: flex;
-	flex-direction: column;
-}
-
-.buy-now label {
-	font-size: 16px;
-	margin-bottom: 10px;
-	color: #333;
-}
-
-.buy-now input[type="text"],
-.buy-now textarea,
-.buy-now input[type="tel"] {
-	padding: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	margin-bottom: 20px;
-	font-size: 16px;
-}
-
-.buy-now input[type="text"]:focus,
-.buy-now textarea:focus,
-.buy-now input[type="tel"]:focus {
-	outline: none;
-	border-color: #333;
-}
-
-.buy-now button[type="submit"] {
-	background-color: #333;
-	color: #fff;
-	border: none;
-	padding: 10px 20px;
-	font-size: 16px;
-	cursor: pointer;
-	transition: background-color 0.2s ease;
-	align-self: flex-end;
-}
-
-.buy-now button[type="submit"]:hover {
-	background-color: #555;
-}
-
-footer {
-	text-align: center;
-	margin-top: 20px;
-	font-size: 14px;
-	color: #333;
-}
-
-.add-to-cart {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.minus-button,
-.plus-button,
-.count {
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 0 10px;
-    cursor: pointer;
-}
-
-.minus-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-*/
 /* Global styles */
 
 * {
@@ -180,7 +15,7 @@ body {
 
 .container {
   max-width: 100%;
-  padding: 20px;
+  padding: 0px;
 }
 
 /* Header styles */
@@ -188,11 +23,18 @@ body {
 header {
   text-align: center;
   margin-bottom: 20px;
+  background-color:#7FDB18;
 }
 
 h1 {
+  
   font-size: 36px;
   color: #333;
+}
+
+h2 {
+  text-align: center;
+  
 }
 
 /* Main styles */
@@ -209,6 +51,48 @@ main {
 }
 
 /* Fish menu styles */
+
+img {
+  border-radius: 50%;
+}
+
+.plus-button {
+  padding: 6px 20px;
+  margin: 4px 2px;
+  font-size: 20px;
+  background-color: white; 
+  color: black;
+  border-radius: 12px; 
+  border: 2px solid #4CAF50;
+  transition-duration: 0.0s;
+}
+
+.plus-button:hover {
+  background-color: #4CAF50;
+  color: white;
+
+}
+
+.count{
+ padding: 12px 20px;
+}
+
+.minus-button {
+  padding: 6px 20px;
+  margin: 4px 2px;
+  font-size: 20px;
+  background-color: white; 
+  color: black;
+  border-radius: 12px; 
+  border: 2px solid #DCDCDC;
+}
+
+.minus-button:hover {
+  background-color: #DCDCDC;
+  color: white;
+
+}
+
 
 .fish-menu {
   margin-right: 0;
