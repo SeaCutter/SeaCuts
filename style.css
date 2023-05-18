@@ -159,25 +159,21 @@ main {
 
 /* cart */
 
-#cart-items{
-padding: 10px 10px;
+.cart-item {
+  margin-bottom: 6px; /
 }
 
 .clear-cart-button {
   padding: 6px 8px;
   margin: 4px 2px;
   font-size: 10px;
-  background-color: white; 
-  color: black;
+  color: white;
   border-radius: 12px; 
   border: 2px solid #F90404;
-  transition-duration: 0.0s;
+  background-color: #F90404;	
+  
 }
 
-.clear-cart-button:hover {
-  background-color: #F90404;
-  color: white;
-}
 
 /* Buy now styles */
 
