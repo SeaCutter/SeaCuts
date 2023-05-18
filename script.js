@@ -119,6 +119,7 @@ function updateCart() {
 
   for (let i = 0; i < cart.length; i++) {
     const item = document.createElement('li');
+    item.classList.add('cart-item'); 	  
     const itemInfo = document.createElement('div');
     const itemName = document.createElement('h3');
     const itemCount = document.createElement('span');
@@ -148,6 +149,9 @@ function updateCart() {
     //countSpan.textContent = cart[i].count;
   }
 
+  const totalPriceMessage = document.createElement('p');
+  totalPriceMessage.textContent = `Total: ₹${totalPrice.toFixed(2)}`;
+	
   const clearCartButton = document.createElement('button');
   clearCartButton.textContent = 'Clear Cart';
   clearCartButton.classList.add('clear-cart-button');
@@ -167,8 +171,7 @@ function updateCart() {
 });
 
 	
-  const totalPriceMessage = document.createElement('p');
-  totalPriceMessage.textContent = `Total: ₹${totalPrice.toFixed(2)}`;
+  
 
   cartItems.appendChild(clearCartButton);
   cartItems.appendChild(totalPriceMessage);
