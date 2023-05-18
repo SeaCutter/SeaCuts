@@ -8,12 +8,20 @@ fetch('fish.csv')
   .then(text => {
     const lines = text.trim().split('\n').slice(1);
     for (const line of lines) {
-      const [name, price] = line.split(',');
+      const [name, price, availability, quantity] = line.split(',');
+
+      // Skip the item if availability is "-"
+      if (availability === '-') {
+        continue;
+      }
+
       const listItem = document.createElement('li');
       listItem.innerHTML = `
         <img src="img/fish/${name.toLowerCase()}.jpg" alt="${name}" class="icons" width="80" height="80">
         <h3>${name}</h3>
         <p class="price">₹${price}</p>
+        <p class="availability">${availability}</p>
+        <p class="quantity">${quantity}</p>
         <div class="add-to-cart">
             <button class="minus-button" disabled>-</button>
             <span class="count">0</span>
@@ -45,12 +53,8 @@ fetch('fish.csv')
         }
 
         // remove item from cart
-	      
-            const itemElement = minusButton.closest('li');
-            removeItemFromCart(itemElement);
-	      
-	     
-
+        const itemElement = minusButton.closest('li');
+        removeItemFromCart(itemElement);
       });
     }
   });
