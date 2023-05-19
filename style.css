@@ -39,6 +39,19 @@ h2 {
   font-family: Ubuntu, sans-serif;
 }
 
+/* Announcement */
+
+.announcement {
+  background-color: #33cc33;
+  color: white;
+  padding: 1px;
+}
+
+.announcement p {
+  margin: 3px;
+  
+}
+
 /* Main styles */
 
 main {
