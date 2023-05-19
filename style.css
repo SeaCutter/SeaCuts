@@ -177,14 +177,19 @@ main {
 .fish-menu li {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px; /* Increase the margin-bottom value to add more space */
 }
 
 .fish-menu li img {
-  width: 70px;
-  height: 60px;
+  width: 100px; /* Adjust the width as desired */
+  height: 90px; /* Adjust the height as desired */
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 20px; /* Increase the margin-right value to add more space */
+}
+
+.fish-menu li .item-details {
+  display: flex;
+  flex-direction: column;
 }
 
 .fish-menu li h3 {
@@ -195,7 +200,12 @@ main {
 .fish-menu li .price {
   font-size: 16px;
   color: #333;
-  margin: 5px 0;
+  margin-top: 5px;
+}
+
+.fish-menu li .count {
+  font-size: 16px;
+  margin-top: 5px;
 }
 
 .fish-menu li .add-to-cart {
@@ -219,6 +229,7 @@ main {
   background-color: #4CAF50;
   color: white;
 }
+
 
 
 /* cart */
