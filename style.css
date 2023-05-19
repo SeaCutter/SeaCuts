@@ -68,10 +68,11 @@ main {
 /* Fish menu styles */
 
 .icons {
-  width: 150px; /* Adjust the width to increase/decrease the size of the circle */
-  height: 100px; /* Adjust the height to increase/decrease the size of the circle */
-  border-radius: 50%;
-  
+  border:2px solid;
+  border-radius:50%;
+  width:100px;
+  height:100px;
+  object-fit:cover
 }
 
 .plus-button {
