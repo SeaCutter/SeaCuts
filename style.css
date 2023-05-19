@@ -115,6 +115,7 @@ main {
 .fish-menu {
   margin-right: 0;
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 @media (min-width: 768px) {
