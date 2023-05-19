@@ -136,7 +136,7 @@ main {
   margin: 0;
   padding: 0;
 }
-
+/*
 .fish-menu li {
   display: flex;
   flex-direction: column;
@@ -173,6 +173,53 @@ main {
 .fish-menu li button.add-to-cart:hover {
   background-color: #555;
 }
+*/
+.fish-menu li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.fish-menu li img {
+  width: 70px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.fish-menu li h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.fish-menu li .price {
+  font-size: 16px;
+  color: #333;
+  margin: 5px 0;
+}
+
+.fish-menu li .add-to-cart {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.fish-menu li .add-to-cart button {
+  padding: 6px 12px;
+  margin: 0 2px;
+  font-size: 16px;
+  background-color: white;
+  color: black;
+  border-radius: 12px;
+  border: 2px solid #4CAF50;
+  transition-duration: 0.2s;
+}
+
+.fish-menu li .add-to-cart button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
 
 /* cart */
 
