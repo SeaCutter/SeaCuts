@@ -19,9 +19,9 @@ fetch('fish.csv')
       listItem.innerHTML = `
         <img src="img/fish/${name}.jpg" alt="${name}" class="icons" width="80" height="80">
         <pre><h5>${name}</h5>
-        <p class="price">₹${price}</p>
+	 <p class="quantity">${quantity}</p>
         <p class="availability">${availability}</p>
-        <p class="quantity">${quantity}</p>
+        <p class="price">₹${price}</p>
 	</pre>
         <div class="add-to-cart">
             <button class="minus-button" disabled>-</button>
