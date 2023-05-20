@@ -18,10 +18,11 @@ fetch('fish.csv')
       const listItem = document.createElement('li');
       listItem.innerHTML = `
         <img src="img/fish/${name}.jpg" alt="${name}" class="icons" width="80" height="80">
-        <h3>${name}</h3>
+        <pre><h5>${name}</h5>
         <p class="price">₹${price}</p>
         <p class="availability">${availability}</p>
         <p class="quantity">${quantity}</p>
+	</pre>
         <div class="add-to-cart">
             <button class="minus-button" disabled>-</button>
             <span class="count">0</span>
