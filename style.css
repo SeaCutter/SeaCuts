@@ -11,6 +11,10 @@ body {
   font-family: Ubuntu, sans-serif;
 }
 
+pre {
+font-family: Ubuntu, sans-serif;
+}
+
 /* Container styles */
 
 .container {
