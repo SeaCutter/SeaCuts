@@ -67,13 +67,7 @@ main {
 
 /* Fish menu styles */
 
-.icons {
-  border:2px solid;
-  border-radius:50%;
-  width:100px;
-  height:100px;
-  object-fit:cover
-}
+
 
 .plus-button {
   padding: 6px 20px;
