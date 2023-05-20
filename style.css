@@ -182,11 +182,14 @@ main {
 }
 
 .fish-menu li img {
-  width: 100px; /* Adjust the width as desired */
-  height: 90px; /* Adjust the height as desired */
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  margin-right: 20px; /* Increase the margin-right value to add more space */
+  object-fit: cover;
+  object-position: center;
+  margin-right: 10px;
 }
+
 
 .fish-menu li .item-details {
   display: flex;
