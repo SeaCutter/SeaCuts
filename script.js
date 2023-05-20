@@ -85,7 +85,7 @@ function addItemToCart(itemElement) {
 }
 
 function removeItemFromCart(itemElement) {
-  const name = itemElement.querySelector('h3').textContent;
+  const name = itemElement.querySelector('h5').textContent;
 
   // Find the item in the cart
   const itemIndex = cart.findIndex(item => item.name === name);
