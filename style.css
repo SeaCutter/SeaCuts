@@ -75,9 +75,9 @@ main {
 
 
 .plus-button {
-  padding: 6px 20px;
-  margin: 4px 2px;
-  font-size: 20px;
+  padding: 6px 15px;
+  margin: 0px;
+  font-size: 16px;
   background-color: white; 
   color: black;
   border-radius: 12px; 
@@ -92,13 +92,13 @@ main {
 }
 
 .count{
- padding: 12px 20px;
+ padding: 12px 10px;
 }
 
 .minus-button {
-  padding: 6px 20px;
-  margin: 4px 2px;
-  font-size: 20px;
+  padding: 6px 15px;
+  margin: 0px;
+  font-size: 16px;
   background-color: white; 
   color: black;
   border-radius: 12px; 
@@ -216,6 +216,7 @@ main {
   margin-left: auto;
 }
 
+/*
 .fish-menu li .add-to-cart button {
   padding: 6px 12px;
   margin: 0 2px;
@@ -232,7 +233,7 @@ main {
   color: white;
 }
 
-
+*/
 
 /* cart */
 
