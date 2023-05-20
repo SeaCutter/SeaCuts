@@ -176,12 +176,10 @@ main {
 }
 
 .fish-menu li img {
-  width: 70px;
-  height: 70px;
+  width: 100px; /* Adjust the width as desired */
+  height: 90px; /* Adjust the height as desired */
   border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
-  margin-right: 10px;
+  margin-right: 20px; /* Increase the margin-right value to add more space */
 }
 
 
