@@ -184,6 +184,7 @@ main {
   width: 100px; /* Adjust the width as desired */
   height: 90px; /* Adjust the height as desired */
   border-radius: 50%;
+  border: 1px solid;	
   margin-right: 20px; /* Increase the margin-right value to add more space */
 }
 
