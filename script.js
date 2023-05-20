@@ -61,7 +61,7 @@ fetch('fish.csv')
   });
 
 function addItemToCart(itemElement) {
-    const name = itemElement.querySelector('h3').textContent;
+    const name = itemElement.querySelector('h5').textContent;
     const price = itemElement.querySelector('.price').textContent;
     let itemExists = false;
 
