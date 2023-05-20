@@ -199,7 +199,7 @@ buyNowButton.addEventListener('click', (event) => {
 	if (name === '' || address === '' || phone === '' || items.length === 0) {
 		alert('Please fill all the required fields and add at least one item to the cart.');
 	} else {
-		const message = `Order received\nName: ${name}\nAddress: ${address}\nPhone: ${phone}\nItems: ${items.join(', ')}\nTotal price: ${totalPrice}`;
+		const message = `Please take my order\nName: ${name}\nAddress: ${address}\nPhone: ${phone}\nItems: ${items.join(', ')}\nTotal price: ${totalPrice}`;
 
 		window.open(`https://wa.me/919607040169?text=${encodeURIComponent(message)}`);
 
